@@ -855,7 +855,7 @@ enum {
     [self recalculateTotal];
 }
 
-- (IBAction)defaultsOrMinimumAction4343534:(id)sender
+- (IBAction)macbook1:(id)sender
 // Called when the user taps the left bar button ("Defaults" or "Minimum").
 // If we have lots of numbers, set the list to contain a sigle entry.  If we have
 {
@@ -879,9 +879,23 @@ enum {
         [self.numbers replaceObjectsInRange:NSMakeRange(0, [self.numbers count]) withObjectsFromArray:[[self class] defaultNumbers]];
     }
     [self syncLeftBarButtonTitle];
-    if (self.isViewLoaded) {
-        [self.tableView reloadData];
+    
+    [self recalculateTotal];
+}
+
+- (IBAction)defaultsOrMinimumAction4343534:(id)sender
+// Called when the user taps the left bar button ("Defaults" or "Minimum").
+// If we have lots of numbers, set the list to contain a sigle entry.  If we have
+{
+#pragma unused(sender)
+    if ([self.numbers count] > 1) {
+        [self.numbers removeAllObjects];
+        [self.numbers addObject:@41];
+    } else {
+        [self.numbers replaceObjectsInRange:NSMakeRange(0, [self.numbers count]) withObjectsFromArray:[[self class] defaultNumbers]];
     }
+    [self syncLeftBarButtonTitle];
+
     [self recalculateTotal];
 }
 
