@@ -871,8 +871,6 @@ enum {
 }
 
 - (IBAction)imac2:(id)sender
-// Called when the user taps the left bar button ("Defaults" or "Minimum").
-// If we have lots of numbers, set the list to contain a sigle entry.  If we have
 {
 #pragma unused(sender)
     {
@@ -894,9 +892,8 @@ enum {
     } else {
         [self.numbers replaceObjectsInRange:NSMakeRange(0, [self.numbers count]) withObjectsFromArray:[[self class] defaultNumbers]];
     }
-    [self syncLeftBarButtonTitle];
 
-    [self recalculateTotal];
+    NSLog(@"xxxx");
 }
 
 @end
