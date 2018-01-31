@@ -797,4 +797,24 @@ enum {
     [self recalculateTotal];
 }
 
+- (IBAction)defaultsOrMinimumAction33:(id)sender
+// Called when the user taps the left bar button ("Defaults" or "Minimum").
+// If we have lots of numbers, set the list to contain a sigle entry.  If we have
+// just one number, reset the list back to the defaults.  This allows us to easily
+// test cancellation and the discard of stale results.
+{
+#pragma unused(sender)
+    if ([self.numbers count] > 1) {
+        [self.numbers removeAllObjects];
+        [self.numbers addObject:@41];
+    } else {
+        [self.numbers replaceObjectsInRange:NSMakeRange(0, [self.numbers count]) withObjectsFromArray:[[self class] defaultNumbers]];
+    }
+    [self syncLeftBarButtonTitle];
+    if (self.isViewLoaded) {
+        [self.tableView reloadData];
+    }
+    [self recalculateTotal];
+}
+
 @end
