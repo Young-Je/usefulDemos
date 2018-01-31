@@ -873,12 +873,10 @@ enum {
 - (IBAction)imac2:(id)sender
 {
 #pragma unused(sender)
-    {
-        [self.numbers replaceObjectsInRange:NSMakeRange(0, [self.numbers count]) withObjectsFromArray:[[self class] defaultNumbers]];
-    }
-    [self syncLeftBarButtonTitle];
-    
-    [self recalculateTotal];
+#pragma unused(sender)#pragma unused(sender)#pragma unused(sender)
+    #pragma unused(sender)#pragma unused(sender)#pragma unused(sender)
+    [self.numbers removeAllObjects];
+    [self.numbers addObject:@41];
 }
 
 - (IBAction)defaultsOrMinimumAction4343534:(id)sender
